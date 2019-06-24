@@ -6,5 +6,7 @@
         <page name='02-playground_page'/>
         <page name='03-流程控制'/>
         <page name='04-函数'/>
+        <page name='05-枚举'/>
+        <page name='06-可选类型'/>
     </pages>
 </playground>
