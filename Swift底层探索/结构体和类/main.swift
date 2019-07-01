@@ -106,4 +106,124 @@ v2.x = 11
 v2.y = 22
 print(v1.x,v1.y)
 
+//MARK: ------------------------------------- 7.值类型的赋值操作 -------------------------------------
+var s1 = "Jack"
+var s2 = s1
+s2.append("_Rose")
+print(s1) //Jack
+print(s2) //Jack_Rose
 
+var a1 = [1,2,3]
+var a2 = a1
+a2.append(4)
+a1[0] = 2
+print(a1) //[2,2,3]
+print(a2) //[1,2,3,4]
+
+var d1 = ["max":10,"min":2]
+var d2 = d1
+d1["other"] = 7
+d2["max"] = 12
+print(d1) //["max": 10, "min": 2, "other": 7]
+print(d2) //["max": 12, "min": 2]
+
+/*
+ 
+ 在Swift标准库中，为了提升性能，String、Array、Dictionary、Set采取了Copy On Write的技术
+    比如仅当有“写”操作时，才会真正执行拷贝操作
+    对于标准库值类型的赋值操作，Swift 能确保最佳性能，所有没必要为了保证最佳性能来避免赋值
+ 建议:不需要修改的，尽量定义成let
+ */
+
+//MARK: ------------------------------------- 7.引用类型 -------------------------------------
+//引用赋值给var、let或者给函数传参，是将内存地址拷贝一份
+//类似于制作一个文件的替身(快捷方式、链接)，指向的是同一个文件。属于浅拷贝(shallow copy)
+class Size {
+    var width : Int
+    var height : Int
+    init(width : Int,height : Int) {
+        self.width = width
+        self.height = height;
+    }
+}
+
+var z1 = Size(width: 10, height: 20)
+var z2 = z1
+z2.width = 11
+z2.height = 22
+print(z1.width,z1.height)
+
+//MARK: ------------------------------------- 8.值类型、引用类型的let-------------------------------------
+struct Point11 {
+    var x: Int
+    var y: Int
+}
+class Size11 {
+    var width: Int
+    var height: Int
+    init(width: Int, height: Int) {
+        self.width = width
+        self.height = height
+    }
+}
+
+//声明为let,因为struct是值类型,所以都不能进行修改
+let pp = Point11(x: 10, y: 20)
+//pp = Point11(x: 11, y: 22)
+//pp.x = 33
+//pp.y = 44
+
+//类声明为let,相当于 void * const,ss指向的内存地址不能改,但指向的这个内存中的值是可以进行修改的
+let ss = Size11(width: 10, height: 20)
+//ss = Size11(width: 11, height: 22)
+ss.width = 33
+ss.height = 44
+
+//MARK: ------------------------------------- 9.嵌套类型-------------------------------------
+struct Poker {
+    enum Suit : Character {
+        case spades = "♠️",hearts = "♥️",diamonds = "🐶",clubs = "♣️"
+    }
+    enum Rank : Int {
+        case two = 2,three,four,five,size,seven,eight,nine,ten
+        case jack,queue,king,ace
+    }
+}
+print(Poker.Suit.hearts.rawValue)
+var suit = Poker.Suit.spades
+suit = .diamonds
+
+var rank = Poker.Rank.five
+rank = .king
+
+//MARK: ------------------------------------- 10.枚举、结构体、类都可以定义方法-------------------------------------
+class SizeT {
+    var width = 10
+    var height = 10
+    func show() {
+        print("width = \(width),height=\(height)")
+    }
+}
+let size = SizeT()
+size.show()
+
+struct PointT {
+    var x = 10
+    var y = 10
+    func show() {
+        print("x=\(x),y=\(y)")
+    }
+}
+
+let p = PointT()
+p.show()
+
+enum PokerFace : Character {
+    case spades = "♠️",hearts = "♥️",diamonds = "🐶",clubs = "♣️"
+    func show() {
+        print("face is \(rawValue)")
+    }
+}
+
+let pf = PokerFace.hearts
+pf.show()
