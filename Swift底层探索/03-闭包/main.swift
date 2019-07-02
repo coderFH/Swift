@@ -109,7 +109,8 @@ func getFn() -> Fn {
     var num = 0
     func plus(_ i: Int) -> Int {
         num += i //函数内部捕获了外部变量num,分析汇编可以发现底层是在堆空间开辟了一个num去存数值的
-        return num }
+        return num
+    }
     return plus
 } // 返回的plus和num形成了闭包
 
