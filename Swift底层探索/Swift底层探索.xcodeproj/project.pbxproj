@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F8EEF9822D5B4170049FEA8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EEF9722D5B4170049FEA8 /* main.swift */; };
 		7FA0206A22C616BE007A9BA0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA0206922C616BE007A9BA0 /* main.swift */; };
 		7FA0207122C616FA007A9BA0 /* Mems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA0207022C616FA007A9BA0 /* Mems.swift */; };
 		7FEB0AC822C9F5F80075A605 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB0AC722C9F5F80075A605 /* main.swift */; };
@@ -14,6 +15,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		7F8EEF9322D5B4170049FEA8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		7FA0206422C616BE007A9BA0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -44,6 +54,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7F8EEF9522D5B4170049FEA8 /* 04-属性 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "04-属性"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F8EEF9722D5B4170049FEA8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		7FA0206622C616BE007A9BA0 /* Swift底层探索 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Swift底层探索"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA0206922C616BE007A9BA0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		7FA0207022C616FA007A9BA0 /* Mems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mems.swift; sourceTree = "<group>"; };
@@ -54,6 +66,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7F8EEF9222D5B4170049FEA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7FA0206322C616BE007A9BA0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,12 +97,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F8EEF9622D5B4170049FEA8 /* 04-属性 */ = {
+			isa = PBXGroup;
+			children = (
+				7F8EEF9722D5B4170049FEA8 /* main.swift */,
+			);
+			path = "04-属性";
+			sourceTree = "<group>";
+		};
 		7FA0205D22C616BE007A9BA0 = {
 			isa = PBXGroup;
 			children = (
 				7FA0206822C616BE007A9BA0 /* Swift底层探索 */,
 				8D7ACF6322C788CA0036E447 /* 结构体和类 */,
 				7FEB0AC622C9F5F80075A605 /* 03-闭包 */,
+				7F8EEF9622D5B4170049FEA8 /* 04-属性 */,
 				7FA0206722C616BE007A9BA0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +122,7 @@
 				7FA0206622C616BE007A9BA0 /* Swift底层探索 */,
 				8D7ACF6222C788CA0036E447 /* 结构体和类 */,
 				7FEB0AC522C9F5F80075A605 /* 03-闭包 */,
+				7F8EEF9522D5B4170049FEA8 /* 04-属性 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,6 +155,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7F8EEF9422D5B4170049FEA8 /* 04-属性 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F8EEF9B22D5B4170049FEA8 /* Build configuration list for PBXNativeTarget "04-属性" */;
+			buildPhases = (
+				7F8EEF9122D5B4170049FEA8 /* Sources */,
+				7F8EEF9222D5B4170049FEA8 /* Frameworks */,
+				7F8EEF9322D5B4170049FEA8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "04-属性";
+			productName = "04-属性";
+			productReference = 7F8EEF9522D5B4170049FEA8 /* 04-属性 */;
+			productType = "com.apple.product-type.tool";
+		};
 		7FA0206522C616BE007A9BA0 /* Swift底层探索 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FA0206D22C616BE007A9BA0 /* Build configuration list for PBXNativeTarget "Swift底层探索" */;
@@ -187,6 +233,9 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "wa\b\bngfh";
 				TargetAttributes = {
+					7F8EEF9422D5B4170049FEA8 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 					7FA0206522C616BE007A9BA0 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -213,11 +262,20 @@
 				7FA0206522C616BE007A9BA0 /* Swift底层探索 */,
 				8D7ACF6122C788CA0036E447 /* 结构体和类 */,
 				7FEB0AC422C9F5F80075A605 /* 03-闭包 */,
+				7F8EEF9422D5B4170049FEA8 /* 04-属性 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7F8EEF9122D5B4170049FEA8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F8EEF9822D5B4170049FEA8 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7FA0206222C616BE007A9BA0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,6 +304,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		7F8EEF9922D5B4170049FEA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7F8EEF9A22D5B4170049FEA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		7FA0206B22C616BE007A9BA0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -418,6 +494,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7F8EEF9B22D5B4170049FEA8 /* Build configuration list for PBXNativeTarget "04-属性" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F8EEF9922D5B4170049FEA8 /* Debug */,
+				7F8EEF9A22D5B4170049FEA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7FA0206122C616BE007A9BA0 /* Build configuration list for PBXProject "Swift底层探索" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
