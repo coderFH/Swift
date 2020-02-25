@@ -1,4 +1,13 @@
 // 单行注释
+/*
+playground的使用
+ view->Navigators->show Project Navigators:显示左侧的工具懒,快捷键:command+1.  隐藏:command+0
+ 创建新的page:左边侧栏显示后,选择Swift后,右键选择New Playground Page
+*/
+
+/*
+ Markup语法:开启 Editor
+ */
 
 /*
  多行注释
