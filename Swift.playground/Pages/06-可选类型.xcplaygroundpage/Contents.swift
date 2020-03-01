@@ -93,6 +93,7 @@ while let num = Int(strs[index]),num > 0 {
 print(sum)
 
 //: #### 6.空合运算符
+//总结:a ?? b 返回的类型取决于b的类型,如果b是可选类型,则返回的也是可选类型.如果b是非可选类型,则返回的也是非可选类型
 let a : Int? = 1
 let b : Int? = 2
 let c = a ?? b
@@ -124,6 +125,7 @@ if let tmp = a1 {
 }
 
 //: #### 7.多个??一起使用
+//也是看最后边是什么类型的
 let a2 : Int? = 1
 let b2 : Int? = 2
 let c2 = a2 ?? b2 ?? 3
@@ -203,7 +205,7 @@ print("My age is \(String(describing: age5))")
 print("My age is \(age5 ?? 0)")
 
 
-//: #### 13.多重可选项
+//: #### 13.多重可选项  注意和空合运算符??的区别
 var num11: Int? = 10
 var num22: Int?? = num11
 var num33: Int?? = 10
@@ -213,7 +215,7 @@ print(num22 == num33) // true
 var number1: Int? = nil
 var number2: Int?? = number1
 var number3: Int?? = nil
-print(number2 == number3) // false
+print(number2 == number3) // false  具体为啥是false 看ppt
 (number2 ?? 1) ?? 2 // 2
 (number3 ?? 1) ?? 2 // 1
 

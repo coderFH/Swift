@@ -131,6 +131,7 @@ print(Season1.autumn.rawValue)
 print(Season1.winter.rawValue)
 
 //: #### 6.递归枚举
+//递归枚举必须加关键字indirect,否则编译器会报错
 indirect enum ArithExpr {
     case number(Int)
     case sum(ArithExpr,ArithExpr)
