@@ -237,3 +237,165 @@ data.append({ 10 }) //还可以添加闭包
 protocol testProtocol : AnyObject {}
 class testClass: testProtocol {}
 //struct testStruct : testProtocol {}  //报错,只有有类能遵守这个协议
+
+
+//MARK: ------------------------------------- is、as?、as!、as -------------------------------------
+//is用来判断是否为某种类型，as用来做强制类型转换
+protocol Runnable9 { func run() }
+class Person9 {}
+class Student9 : Person9, Runnable9 {
+    func run() {
+        print("Student run")
+    }
+    func study() {
+        print("Student study")
+    }
+}
+
+var stu9: Any = 10
+print(stu9 is Int) // true
+stu9 = "Jack"
+print(stu9 is String) // true
+stu9 = Student9()
+print(stu9 is Person9) // true
+print(stu9 is Student9) // true
+print(stu9 is Runnable9) // true
+
+var stu10: Any = 10
+//(stu10 as? Student9)这里的as? 表示因为stu10是Any类型,即有可能转换成功或者失败,也就是返回可选类型
+//既然是可选类型调用一个方法,就也应该加?号,即(stu10 as? Student9)?
+(stu10 as? Student9)?.study() // 没有调用study
+
+//(stu10 as? Student9)!.study() // 转换后强制解包,  这种情况下会崩溃,因为一旦强制转换失败,就是nil,nil强制解包就直接崩溃
+//(stu10 as! Student9).study() // 这种写法跟上边的写法是一样的
+
+stu10 = Student9()
+(stu10 as? Student9)?.study() //Student study
+(stu10 as! Student9).study() // Student study
+(stu10 as? Runnable9)?.run() // Student run
+
+// as的用法
+var data10 = [Any]()
+data10.append(Int("123") as Any)
+
+var d = 10 as Double
+print(d) // 10.0
+ 
+
+//MARK: ------------------------------------- X.self、X.Type、AnyClass -------------------------------------
+// X.self是一个元类型(metadata)的指针，metadata存放着类型相关信息
+//X.self属于X.Type类型
+class tree {}
+var t = tree()
+//上边两句代码,在内存中的就是在栈中有个内存t,他存储着一块堆空间的地址值,即tree对象,其中tree的前8个字节存储这tree的元类对象,使用X.self就可以拿到元类
+//而使用x.self 拿到的元类对象的类型是 x.Type类型的
+class Person10 {}
+class Student10 : Person10 {}
+var perType: Person10.Type = Person10.self
+var stuType: Student10.Type = Student10.self  //X.self属于X.Type类型
+perType = Student10.self
+
+var anyType: AnyObject.Type = Person10.self
+anyType = Student10.self
+
+public typealias AnyClass = AnyObject.Type
+var anyType2: AnyClass = Person10.self
+anyType2 = Student10.self
+
+var per = Person10()
+var perType2 = type(of: per) // Person.self
+print(Person10.self == type(of: per)) // true
+
+//其实,x.self 和 x 在很多时候,是一样的 eg
+class Bird {
+    static var age = 0
+    static func run() {}
+}
+
+//这两种写法和x.self的写法本质上就是一样的,可以看汇编
+Bird.age = 10
+Bird.run()
+
+Bird.self.age = 10
+Bird.self.run()
+
+//以下这几种创建方式,都是调用了init(),汇编一下会发现一模一样
+var b1 = Bird()
+var b2 = Bird.self()
+var b3 = Bird.init()
+var b4 = Bird.self.init()
+
+//那是不是以后只要用到Bird的地方就能用Bird.self代替,使用Bird.self也能用Bird替换呢?
+//不行打,首先Bird.self 拿到的肯定是元类型
+var bType = Bird.self
+//那你肯定不能这么写
+//var bType1 = Bird
+
+//所以比如我们又一下函数
+//AnyClass是AnyObject.type 也就是任何类的元类型
+func test(_ cls : AnyClass) {
+    
+}
+//test(Bird)// 这么传就不行,因为参数规定的就是元类型
+test(Bird.self)
+
+
+//MARK: ------------------------------------- 元类型的应用 -------------------------------------
+class Animal { required init() {} }
+class Cat : Animal {}
+class Dog : Animal {}
+class Pig : Animal {}
+//我们通过类创建对象的时候,可以使用两种方式创建
+//1
+var a1 = Animal()
+//2
+var t1 = Animal.self
+var a2 = t1.init() //类似OC的 [[Animal.class alloc] init]
+
+//所以就能看懂以下代码
+func create(_ clses: [Animal.Type]) -> [Animal] {
+    var arr = [Animal]()
+    for cls in clses {
+        arr.append(cls.init()) //311行,父类需要加required是因为,323行传参是[Animal.type],这里我传入的是Animal的子类型,子类类型要保证也有init的实现,基类的初始化方法init加required就行!
+        //按说我继承的,子类不是一定会有init方法么?因为我在子类可能会写其他的初始化器,这样子类不是就没有init()的初始化器了么
+    }
+    return arr
+}
+print(create([Cat.self, Dog.self, Pig.self]))
+
+//MARK: ------------------------------------- Self -------------------------------------
+ //Self代表当前类型
+ class Person11 {
+    var age = 1
+    static var count = 2
+    func run() {
+        print(self.age) // 1
+        print(Self.count) // 2
+    }
+}
+
+//Self一般用作返回值类型，限定返回值跟方法调用者必须是同一类型(也可以作为参数类型)
+protocol Runnable12 {
+    func test() -> Self
+}
+
+class Person12 : Runnable12 {
+    required init() {}
+    func test() -> Self {
+        //注意:Self跟OC的instancetype有点类似,但又不完全一样,如果我这里直接返回Person12(),那么我Student12在调用test方法时,也会返回Person12(),这样明显不对
+        //所以应该这么写
+        type(of: self).init()
+    }
+}
+
+class Student12 : Person12 {}
+
+var p12 = Person12()
+// Person12
+print(p12.test())
+var stu12 = Student12()
+// Student12
+print(stu12.test())
+
+
+
