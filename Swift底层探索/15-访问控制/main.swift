@@ -94,3 +94,51 @@ class Postman {
 var m = Postman()
 //m.age = 10 //set 报错
 print(m.age) //get
+
+
+
+//MARK: -------------------------------------协议 -------------------------------------
+//协议中定义的要求自动接收协议的访问级别，不能单独设置访问级别 ppublic协议定义的要求也是public
+protocol Runable {
+    func run() // 不能单独设置访问级别,默认接受该协议的访问级别,即Runable的级别
+}
+
+//协议实现的访问级别必须 ≥ 类型的访问级别，或者 ≥ 协议的访问级别
+internal protocol Swimable {
+    func swiming()
+}
+
+fileprivate class Finsh : Swimable {
+    func swiming() { //协议实现的访问级别 我只要比Finsh(类型的访问级别)的访问级别级别高,或者大于协议的访问级别都是可以的,比如我这里写private,就会报错
+        print("游泳")
+    }
+}
+
+//MARK: -------------------------------------将方法赋值给var\let -------------------------------------
+struct Cat {
+    var age: Int
+    func run(_ v: Int) { print("func run", age, v) } //实例方法
+}
+
+var d1 = Cat.run //他的类型是(Cat) ->(Int) -> () 所以d1的实际类型就是传一个Cat对象进去,返回你一个参数是Int类型无返回值的方法
+var d2 = d1(Cat(age: 10)) // d2的类型就是 (Int)->()  参数是Int类型无返回值的方法
+d2(20)  //直接调用d2,就相当于调用了run方法
+
+
+//方法也可以像函数那样，赋值给一个let或者var
+struct Person1 {
+    var age: Int
+    func run(_ v: Int) { print("func run", age, v) } //实例方法
+    static func run(_ v: Int) { print("static func run", v) } //类方法
+}
+
+let fn1 = Person1.run
+fn1(10) // static func run 10   默认的就会调用类方法
+
+let fn2: (Int) -> () = Person1.run //也可以声明的时候指定类型
+fn2(20) // static func run 20
+
+let fn3: (Person1) -> ((Int) -> ()) = Person1.run //如果我就想调用实例方法 就显示的指定类型,看不懂(Person1) -> ((Int) -> ())这个类型,就看上边Cat的那个例子
+fn3(Person1(age: 18))(30) // func run 18 30
+
+
