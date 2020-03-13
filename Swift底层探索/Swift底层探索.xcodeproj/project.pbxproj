@@ -11,6 +11,7 @@
 		7F1FEC8122DC822700689758 /* Mems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1FEC8022DC822700689758 /* Mems.swift */; };
 		7F4B4CD9241768EE00391F3E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4B4CD8241768EE00391F3E /* main.swift */; };
 		7F4B4CE42417BB1900391F3E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4B4CE32417BB1900391F3E /* main.swift */; };
+		7F77DE55241B90AE001F76FB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77DE54241B90AE001F76FB /* main.swift */; };
 		7F8EEF9822D5B4170049FEA8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8EEF9722D5B4170049FEA8 /* main.swift */; };
 		7FA0206A22C616BE007A9BA0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA0206922C616BE007A9BA0 /* main.swift */; };
 		7FA0207122C616FA007A9BA0 /* Mems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA0207022C616FA007A9BA0 /* Mems.swift */; };
@@ -46,6 +47,15 @@
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		7F4B4CDF2417BB1900391F3E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		7F77DE50241B90AE001F76FB /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -172,6 +182,8 @@
 		7F4B4CD8241768EE00391F3E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		7F4B4CE12417BB1900391F3E /* 15-访问控制 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "15-访问控制"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4B4CE32417BB1900391F3E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		7F77DE52241B90AE001F76FB /* 16-内存管理 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "16-内存管理"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F77DE54241B90AE001F76FB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		7F8EEF9522D5B4170049FEA8 /* 04-属性 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "04-属性"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F8EEF9722D5B4170049FEA8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		7FA0206622C616BE007A9BA0 /* Swift底层探索 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Swift底层探索"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +227,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7F4B4CDE2417BB1900391F3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F77DE4F241B90AE001F76FB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -333,6 +352,14 @@
 			path = "15-访问控制";
 			sourceTree = "<group>";
 		};
+		7F77DE53241B90AE001F76FB /* 16-内存管理 */ = {
+			isa = PBXGroup;
+			children = (
+				7F77DE54241B90AE001F76FB /* main.swift */,
+			);
+			path = "16-内存管理";
+			sourceTree = "<group>";
+		};
 		7F8EEF9622D5B4170049FEA8 /* 04-属性 */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,6 +386,7 @@
 				7FBD9FC82416157E0014CCE5 /* 13-高级运算符 */,
 				7F4B4CD7241768EE00391F3E /* 14-扩展 */,
 				7F4B4CE22417BB1900391F3E /* 15-访问控制 */,
+				7F77DE53241B90AE001F76FB /* 16-内存管理 */,
 				7FA0206722C616BE007A9BA0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -381,6 +409,7 @@
 				7FBD9FC72416157E0014CCE5 /* 13-高级运算符 */,
 				7F4B4CD6241768EE00391F3E /* 14-扩展 */,
 				7F4B4CE12417BB1900391F3E /* 15-访问控制 */,
+				7F77DE52241B90AE001F76FB /* 16-内存管理 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -526,6 +555,23 @@
 			name = "15-访问控制";
 			productName = "15-访问控制";
 			productReference = 7F4B4CE12417BB1900391F3E /* 15-访问控制 */;
+			productType = "com.apple.product-type.tool";
+		};
+		7F77DE51241B90AE001F76FB /* 16-内存管理 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F77DE58241B90AE001F76FB /* Build configuration list for PBXNativeTarget "16-内存管理" */;
+			buildPhases = (
+				7F77DE4E241B90AE001F76FB /* Sources */,
+				7F77DE4F241B90AE001F76FB /* Frameworks */,
+				7F77DE50241B90AE001F76FB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "16-内存管理";
+			productName = "16-内存管理";
+			productReference = 7F77DE52241B90AE001F76FB /* 16-内存管理 */;
 			productType = "com.apple.product-type.tool";
 		};
 		7F8EEF9422D5B4170049FEA8 /* 04-属性 */ = {
@@ -751,6 +797,9 @@
 					7F4B4CE02417BB1900391F3E = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
+					7F77DE51241B90AE001F76FB = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 					7F8EEF9422D5B4170049FEA8 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -816,6 +865,7 @@
 				7FBD9FC62416157E0014CCE5 /* 13-高级运算符 */,
 				7F4B4CD5241768EE00391F3E /* 14-扩展 */,
 				7F4B4CE02417BB1900391F3E /* 15-访问控制 */,
+				7F77DE51241B90AE001F76FB /* 16-内存管理 */,
 			);
 		};
 /* End PBXProject section */
@@ -843,6 +893,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F4B4CE42417BB1900391F3E /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F77DE4E241B90AE001F76FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F77DE55241B90AE001F76FB /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -995,6 +1053,26 @@
 			name = Debug;
 		};
 		7F4B4CE72417BB1900391F3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7F77DE56241B90AE001F76FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7F77DE57241B90AE001F76FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -1373,6 +1451,15 @@
 			buildConfigurations = (
 				7F4B4CE62417BB1900391F3E /* Debug */,
 				7F4B4CE72417BB1900391F3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F77DE58241B90AE001F76FB /* Build configuration list for PBXNativeTarget "16-内存管理" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F77DE56241B90AE001F76FB /* Debug */,
+				7F77DE57241B90AE001F76FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
