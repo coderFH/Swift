@@ -40,7 +40,7 @@ func test() {
         print("下标越界:", "size=\(size)", "index=\(index)")
     } catch SomeError.outOfMemory {
         print("内存溢出")
-    } catch {
+    } catch { //catch里边默认是有个error的
         print("其他错误")
     }
     print("4")

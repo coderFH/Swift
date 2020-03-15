@@ -6,7 +6,7 @@ playground的使用
 */
 
 /*
- Markup语法:开启 Editor
+ Markup语法:开启 Editor->show Rendered Markup
  */
 
 /*

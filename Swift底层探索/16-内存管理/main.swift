@@ -73,13 +73,13 @@ autoreleasepool {
 class Person1 {
     var fn: (() -> ())?
     func run() { print("run") }
-    deinit { print("deinit") }
+    deinit { print("Person1 deinit") }
 }
 func test() {
-    let p1 = Person1()
+    let p1 = Person1() //p1里有个fn对闭包进行着强引用
     //这样写会产生循环引用
 //    p1.fn = {
-//        p1.run()
+//        p1.run() //闭包对外部的p1有个强引用
 //    }
     
    //在闭包表达式的捕获列表声明weak或unowned引用，解决循环引用问题
@@ -93,10 +93,120 @@ func test() {
 //    }
     
     p1.fn = {
-        [weak wp = p1,unowned up = p1, a = 10 + 20] in //捕获列表声明中可以进行重命名,甚至还能进行计算
+        [weak wp = p1,unowned up = p1, a = 10 + 20] in //捕获列表声明中可以进行重命名,甚至还可以写其他变量
         wp?.run()
         up.run()
     }
+    
+    p1.fn!() //调用闭包
 }
 
 test()
+
+//如果想在定义闭包属性的同时引用self，这个闭包必须是lazy的(因为在实例初始化完毕之后才能引用self)
+ class Person2 {
+    //左边的闭包fn内部如果用到了实例成员(属性、方法)
+    //编译器会强制要求明确写出self,以提醒你是否注意到了循环引用的问题
+    lazy var fn: (() -> ()) = {
+        [weak self] in
+        /*
+         为什么加上lazy后,就不报错了?
+         因为self只有在实例初始化完成之后才能使用,swfit的两段式初始化,先要保证所有的存储属性都有值,即我们先把这个闭包表达式赋值给fn变量,使其有值,才能使用self
+         而不加lazy,你初始化就完成不了,如何使用self,使用lazy就是延迟加载
+         */
+        self?.run() //这里其实如果不写self,直接run,其实也是self在调用
+    }
+    func run() { print("Person2 run") }
+    deinit { print("Person2 deinit") }
+}
+
+func test2() {
+    let pp = Person2()
+    pp.fn() //假如我们不调用fn,Person2也是能销毁的,因为你压根就没用到fn,他也就不会加载,也就不会存在所谓的循环引用问题,因为它压根就没有
+}
+test2()
+
+let pp = Person2()
+
+//如果lazy属性是闭包调用的结果，那么不用考虑循环引用的问题(因为闭包调用后，闭包的生命周期就结束了)
+ class Person3 {
+    var age: Int = 0
+    lazy var getAge: Int = {
+        self.age //这里我虽然对age有个强引用,但我是立即执行的,闭包执行完,生命周期就结束了,注意理解  如果lazy属性是闭包调用的结果 这几个字,他跟上边fn的区别就是,fn是对闭包有个强引用,并没有立即执行,至于你什么时候执行,我是不知道的,所以会循环引用!而p3.getAge在调用的时候,马上执行闭包,把结果赋值给getAge属性,闭包的生命周期就结束了,所以没有造成循环引用,看两个属性的类型也能知道区别
+    }()
+    deinit { print("Person3 deinit") }
+}
+func test3() {
+    let p3 = Person3()
+    print(p3.getAge)
+}
+test3()
+
+//MARK: - ------------------------------------@escaping -------------------------------------
+//非逃逸闭包、逃逸闭包，一般都是当做参数传递给函数
+//非逃逸闭包:闭包调用发生在函数结束前，闭包调用在函数作用域内
+//逃逸闭包:闭包有可能在函数结束后调用，闭包调用逃离了函数的作用域，需要通过@escaping声明
+
+import Dispatch
+typealias Fn = () -> ()
+
+// fn是非逃逸闭包
+func test1(_ fn: Fn) {
+    fn()
+}
+
+// fn是逃逸闭包
+var gFn: Fn?
+func test2(_ fn: @escaping Fn) {
+    gFn = fn //把fn赋值给了全局的gFn,gFn的调用在哪不清楚,但肯定不在test2的作用域内,所以是逃逸闭包
+}
+
+ // fn是逃逸闭包
+func test3(_ fn: @escaping Fn) {//因为开启了异步,fn的执行不在test3函数作用域内了
+    DispatchQueue.global().async {
+        fn()
+    }
+}
+
+class Person4 {
+    var fn: Fn
+    // fn是逃逸闭包
+    init(fn: @escaping Fn) {
+        self.fn = fn
+    }
+    func run() {
+        // DispatchQueue.global().async也是一个逃逸闭包
+        // 它用到了实例成员(属性、方法)，编译器会强制要求明确写出self
+        DispatchQueue.global().async {
+            self.fn()
+        }
+    }
+}
+
+//MARK: - ------------------------------------逃逸闭包的注意点 -------------------------------------
+//逃逸闭包不可以捕获inout参数
+func other1(_ fn: Fn) { fn() }
+
+func other2(_ fn: @escaping Fn) { fn() } //其实fn不算是逃逸闭包,但是我们可以强制声明成逃逸闭包
+
+func test4(value: inout Int) {
+    other1 { //other1 接受一个无参数无返回值的闭包,这么写就是尾随闭包
+        value += 1
+        print(value)
+    }
+}
+var a = 10
+test4(value: &a);
+
+func test5(value: inout Int) {
+//    other2 { // 由此可见逃逸闭包不可以捕获inout参数,因为你是逃逸闭包,就会不确定在什么时候调用,当你调用的时候,value 可能已经释放了, 不安全
+//        value += 1
+//        print(value)
+//    }
+}
+
+//func test6(value: inout Int) -> Fn {
+//    func plus() { value += 1 }
+//    // error: 逃逸闭包不能捕获inout参数
+//    return plus //返回一个函数,本质上也是逃逸闭包,因为返回的这个函数,在哪调用也不确定
+//}
