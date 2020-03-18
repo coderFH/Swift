@@ -11,6 +11,8 @@
 		7F1FEC8122DC822700689758 /* Mems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1FEC8022DC822700689758 /* Mems.swift */; };
 		7F42E418241F787500ACF0EE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F42E417241F787500ACF0EE /* main.swift */; };
 		7F42E41F241F788C00ACF0EE /* FHPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F42E41E241F788C00ACF0EE /* FHPerson.m */; };
+		7F49DBFE2421DEAC00FF40EB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49DBFD2421DEAC00FF40EB /* main.swift */; };
+		7F49DC272421FA8500FF40EB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F49DC262421FA8500FF40EB /* main.swift */; };
 		7F4B4CD9241768EE00391F3E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4B4CD8241768EE00391F3E /* main.swift */; };
 		7F4B4CE42417BB1900391F3E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4B4CE32417BB1900391F3E /* main.swift */; };
 		7F564E212420B99300622FAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F564E202420B99300622FAB /* AppDelegate.swift */; };
@@ -56,6 +58,24 @@
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 		7F42E413241F787500ACF0EE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		7F49DBF92421DEAC00FF40EB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		7F49DC222421FA8500FF40EB /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -237,6 +257,10 @@
 		7F42E41C241F788B00ACF0EE /* 20-Swift调用OC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "20-Swift调用OC-Bridging-Header.h"; sourceTree = "<group>"; };
 		7F42E41D241F788C00ACF0EE /* FHPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FHPerson.h; sourceTree = "<group>"; };
 		7F42E41E241F788C00ACF0EE /* FHPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FHPerson.m; sourceTree = "<group>"; };
+		7F49DBFB2421DEAC00FF40EB /* 23-Array的常见操作 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "23-Array的常见操作"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F49DBFD2421DEAC00FF40EB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		7F49DC242421FA8500FF40EB /* 24-函数式编程 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "24-函数式编程"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F49DC262421FA8500FF40EB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		7F4B4CD6241768EE00391F3E /* 14-扩展 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "14-扩展"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F4B4CD8241768EE00391F3E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		7F4B4CE12417BB1900391F3E /* 15-访问控制 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "15-访问控制"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +326,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7F42E412241F787500ACF0EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F49DBF82421DEAC00FF40EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F49DC212421FA8500FF40EB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -471,6 +509,22 @@
 			path = "20-Swift调用OC";
 			sourceTree = "<group>";
 		};
+		7F49DBFC2421DEAC00FF40EB /* 23-Array的常见操作 */ = {
+			isa = PBXGroup;
+			children = (
+				7F49DBFD2421DEAC00FF40EB /* main.swift */,
+			);
+			path = "23-Array的常见操作";
+			sourceTree = "<group>";
+		};
+		7F49DC252421FA8500FF40EB /* 24-函数式编程 */ = {
+			isa = PBXGroup;
+			children = (
+				7F49DC262421FA8500FF40EB /* main.swift */,
+			);
+			path = "24-函数式编程";
+			sourceTree = "<group>";
+		};
 		7F4B4CD7241768EE00391F3E /* 14-扩展 */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,6 +635,8 @@
 				7F42E416241F787500ACF0EE /* 20-Swift调用OC */,
 				7F564E1F2420B99300622FAB /* 21-资源管理 */,
 				7F564E372420C02E00622FAB /* 22-多线程开发 */,
+				7F49DBFC2421DEAC00FF40EB /* 23-Array的常见操作 */,
+				7F49DC252421FA8500FF40EB /* 24-函数式编程 */,
 				7FA0206722C616BE007A9BA0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -610,6 +666,8 @@
 				7F42E415241F787500ACF0EE /* 20-Swift调用OC */,
 				7F564E1E2420B99300622FAB /* 21-资源管理.app */,
 				7F564E362420C02E00622FAB /* 22-多线程开发.app */,
+				7F49DBFB2421DEAC00FF40EB /* 23-Array的常见操作 */,
+				7F49DC242421FA8500FF40EB /* 24-函数式编程 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -738,6 +796,40 @@
 			name = "20-Swift调用OC";
 			productName = "20-Swift调用OC";
 			productReference = 7F42E415241F787500ACF0EE /* 20-Swift调用OC */;
+			productType = "com.apple.product-type.tool";
+		};
+		7F49DBFA2421DEAC00FF40EB /* 23-Array的常见操作 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F49DC012421DEAC00FF40EB /* Build configuration list for PBXNativeTarget "23-Array的常见操作" */;
+			buildPhases = (
+				7F49DBF72421DEAC00FF40EB /* Sources */,
+				7F49DBF82421DEAC00FF40EB /* Frameworks */,
+				7F49DBF92421DEAC00FF40EB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "23-Array的常见操作";
+			productName = "23-Array的常见操作";
+			productReference = 7F49DBFB2421DEAC00FF40EB /* 23-Array的常见操作 */;
+			productType = "com.apple.product-type.tool";
+		};
+		7F49DC232421FA8500FF40EB /* 24-函数式编程 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7F49DC2A2421FA8500FF40EB /* Build configuration list for PBXNativeTarget "24-函数式编程" */;
+			buildPhases = (
+				7F49DC202421FA8500FF40EB /* Sources */,
+				7F49DC212421FA8500FF40EB /* Frameworks */,
+				7F49DC222421FA8500FF40EB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "24-函数式编程";
+			productName = "24-函数式编程";
+			productReference = 7F49DC242421FA8500FF40EB /* 24-函数式编程 */;
 			productType = "com.apple.product-type.tool";
 		};
 		7F4B4CD5241768EE00391F3E /* 14-扩展 */ = {
@@ -1097,6 +1189,12 @@
 						CreatedOnToolsVersion = 11.3.1;
 						LastSwiftMigration = 1130;
 					};
+					7F49DBFA2421DEAC00FF40EB = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					7F49DC232421FA8500FF40EB = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 					7F4B4CD5241768EE00391F3E = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -1194,6 +1292,8 @@
 				7F42E414241F787500ACF0EE /* 20-Swift调用OC */,
 				7F564E1D2420B99300622FAB /* 21-资源管理 */,
 				7F564E352420C02E00622FAB /* 22-多线程开发 */,
+				7F49DBFA2421DEAC00FF40EB /* 23-Array的常见操作 */,
+				7F49DC232421FA8500FF40EB /* 24-函数式编程 */,
 			);
 		};
 /* End PBXProject section */
@@ -1237,6 +1337,22 @@
 			files = (
 				7F42E41F241F788C00ACF0EE /* FHPerson.m in Sources */,
 				7F42E418241F787500ACF0EE /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F49DBF72421DEAC00FF40EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F49DBFE2421DEAC00FF40EB /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F49DC202421FA8500FF40EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7F49DC272421FA8500FF40EB /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1493,6 +1609,46 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "20-Swift调用OC/20-Swift调用OC-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7F49DBFF2421DEAC00FF40EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7F49DC002421DEAC00FF40EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7F49DC282421FA8500FF40EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7F49DC292421FA8500FF40EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -2055,6 +2211,24 @@
 			buildConfigurations = (
 				7F42E419241F787500ACF0EE /* Debug */,
 				7F42E41A241F787500ACF0EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F49DC012421DEAC00FF40EB /* Build configuration list for PBXNativeTarget "23-Array的常见操作" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F49DBFF2421DEAC00FF40EB /* Debug */,
+				7F49DC002421DEAC00FF40EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7F49DC2A2421FA8500FF40EB /* Build configuration list for PBXNativeTarget "24-函数式编程" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7F49DC282421FA8500FF40EB /* Debug */,
+				7F49DC292421FA8500FF40EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
