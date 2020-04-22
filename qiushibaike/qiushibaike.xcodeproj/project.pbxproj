@@ -20,6 +20,8 @@
 		7F81250F244DA1C700BB3535 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F81250E244DA1C700BB3535 /* TabBar.swift */; };
 		7F812511244DA27E00BB3535 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F812510244DA27E00BB3535 /* API.swift */; };
 		7FD55DF0244DACE900574580 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD55DEF244DACE900574580 /* HomeTableViewCell.swift */; };
+		7FF7DB17244FE23D0002D41E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF7DB16244FE23D0002D41E /* Item.swift */; };
+		7FF7DB19244FE2A30002D41E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF7DB18244FE2A30002D41E /* User.swift */; };
 		DA49FE0BCAEC223B4ED83535 /* Pods_qiushibaike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31406CD48244304D0A6CCE43 /* Pods_qiushibaike.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,8 @@
 		7F81250E244DA1C700BB3535 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		7F812510244DA27E00BB3535 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		7FD55DEF244DACE900574580 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		7FF7DB16244FE23D0002D41E /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		7FF7DB18244FE2A30002D41E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,8 @@
 			children = (
 				7F5E12B7244D9FF3004A9763 /* HomeViewController.swift */,
 				7FD55DEF244DACE900574580 /* HomeTableViewCell.swift */,
+				7FF7DB16244FE23D0002D41E /* Item.swift */,
+				7FF7DB18244FE2A30002D41E /* User.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -265,7 +271,9 @@
 				7F81250F244DA1C700BB3535 /* TabBar.swift in Sources */,
 				7F5E129A244D9D16004A9763 /* AppDelegate.swift in Sources */,
 				7F5E12B6244D9F54004A9763 /* LiveViewController.swift in Sources */,
+				7FF7DB17244FE23D0002D41E /* Item.swift in Sources */,
 				7FD55DF0244DACE900574580 /* HomeTableViewCell.swift in Sources */,
+				7FF7DB19244FE2A30002D41E /* User.swift in Sources */,
 				7F5E12B8244D9FF3004A9763 /* HomeViewController.swift in Sources */,
 				7F812511244DA27E00BB3535 /* API.swift in Sources */,
 				7F5E129C244D9D16004A9763 /* SceneDelegate.swift in Sources */,
