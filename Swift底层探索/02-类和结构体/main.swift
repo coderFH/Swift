@@ -37,9 +37,20 @@ struct Point1 {
     var y : Int = 0
 }
 var pp1 = Point1(x: 10, y: 10)
-//var pp2 = Point1(y: 10)  //按说不应该报错,是不是swift版本的问题
-//var pp3 = Point1(x: 10)  //按说不应该报错,是不是swift版本的问题
+var pp2 = Point1(y: 10)
+var pp3 = Point1(x: 10)
 var pp4 = Point1()
+
+
+// 下面代码能编译通过吗 ? 可以的
+struct Point22 {
+    var x : Int?
+    var y : Int?
+}
+var s0 = Point22(x: 10, y: 20)
+var s11 = Point22(x: 10)
+var s22 = Point22(y: 20)
+var s33 = Point22()
 
 //MARK: ------------------------------------- 3.自定义初始化器 -------------------------------------
 struct Point2 {
@@ -61,7 +72,7 @@ struct Point3 {
     var y : Int = 0
     var origin : Bool = false
 }
-print(MemoryLayout<Point3>.size) //17
+print(MemoryLayout<Point3>.size) //17  8 + 8 + 1
 print(MemoryLayout<Point3>.stride) //24
 print(MemoryLayout<Point3>.alignment) //8
 
@@ -77,14 +88,14 @@ let o1 = Point4() //如果类的所有成员都在定义的时候指定了初始
 //let o4 = Point4(y:20) //报错
 
 //对比下结构体
-class Point5 {
+struct Point5 {
     var x : Int = 0
     var y : Int = 0
 }
-let oo1 = Point4()
-//let oo2 = Point5(x:10,y:20) //按说不应该报错,是不是swift版本的问题
-//let oo3 = Point5(x:10) //按说不应该报错,是不是swift版本的问题
-//let oo4 = Point5(y:20) //按说不应该报错,是不是swift版本的问题
+let oo1 = Point5()
+let oo2 = Point5(x:10,y:20)
+let oo3 = Point5(x:10)
+let oo4 = Point5(y:20)
 
 //以下代码还是会报错,因为无参构造器在构造完毕后,不能保证所有的成员都有值x,y都是没有值的,所有直接编译器报错
 //class Point6 {
