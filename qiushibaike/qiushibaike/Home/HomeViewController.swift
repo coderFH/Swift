@@ -21,9 +21,9 @@ class HomeViewController: UIViewController {
     lazy var tableView : UITableView = {
         let tableView = UITableView()
         tableView.estimatedRowHeight = 60
-        
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
-       
         return UITableView();
     }();
 
@@ -32,8 +32,7 @@ class HomeViewController: UIViewController {
         title = "糗事百科"
         
         tableView.frame = self.view.bounds
-        tableView.delegate = self
-        tableView.dataSource = self
+        
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: Self.itemCellId);
         view.addSubview(tableView)
         
