@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F88C3122486542900E25D03 /* Appdelegate+flutter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F88C3112486542900E25D03 /* Appdelegate+flutter.swift */; };
 		8D90F3BB24829211002F549E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D90F3BA24829211002F549E /* AppDelegate.swift */; };
 		8D90F3BD24829211002F549E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D90F3BC24829211002F549E /* SceneDelegate.swift */; };
 		8D90F3BF24829211002F549E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D90F3BE24829211002F549E /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		60C3A3D2FC1A9AB73682208B /* Pods-cloudmusic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cloudmusic.release.xcconfig"; path = "Target Support Files/Pods-cloudmusic/Pods-cloudmusic.release.xcconfig"; sourceTree = "<group>"; };
+		7F88C3112486542900E25D03 /* Appdelegate+flutter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Appdelegate+flutter.swift"; sourceTree = "<group>"; };
 		837211D4241C4A5C0FAD70F3 /* Pods_cloudmusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cloudmusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D90F3B724829211002F549E /* cloudmusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cloudmusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D90F3BA24829211002F549E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				8D90F3BA24829211002F549E /* AppDelegate.swift */,
 				8D90F3BC24829211002F549E /* SceneDelegate.swift */,
 				8D90F3BE24829211002F549E /* ViewController.swift */,
+				7F88C3112486542900E25D03 /* Appdelegate+flutter.swift */,
 				8D90F3C024829211002F549E /* Main.storyboard */,
 				8D90F3C324829217002F549E /* Assets.xcassets */,
 				8D90F3C524829217002F549E /* LaunchScreen.storyboard */,
@@ -88,7 +91,6 @@
 				F351A3217C478740275472C9 /* Pods-cloudmusic.debug.xcconfig */,
 				60C3A3D2FC1A9AB73682208B /* Pods-cloudmusic.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -100,6 +102,7 @@
 			buildConfigurationList = 8D90F3CB24829217002F549E /* Build configuration list for PBXNativeTarget "cloudmusic" */;
 			buildPhases = (
 				07AE9AF5B7E4D7649A0911EF /* [CP] Check Pods Manifest.lock */,
+				06697A243339674A3AEEFDC2 /* [CP-User] Run Flutter Build Script */,
 				8D90F3B324829211002F549E /* Sources */,
 				8D90F3B424829211002F549E /* Frameworks */,
 				8D90F3B524829211002F549E /* Resources */,
@@ -161,6 +164,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		06697A243339674A3AEEFDC2 /* [CP-User] Run Flutter Build Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../cloudmusic_flutter/.metadata",
+				"${SRCROOT}/../cloudmusic_flutter/.ios/Flutter/App.framework/App",
+				"${SRCROOT}/../cloudmusic_flutter/.ios/Flutter/engine/Flutter.framework/Flutter",
+				"${SRCROOT}/../cloudmusic_flutter/.ios/Flutter/flutter_export_environment.sh",
+			);
+			name = "[CP-User] Run Flutter Build Script";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../cloudmusic_flutter/.ios/Flutter/flutter_export_environment.sh\"\n\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
+		};
 		07AE9AF5B7E4D7649A0911EF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -208,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D90F3BF24829211002F549E /* ViewController.swift in Sources */,
+				7F88C3122486542900E25D03 /* Appdelegate+flutter.swift in Sources */,
 				8D90F3BB24829211002F549E /* AppDelegate.swift in Sources */,
 				8D90F3BD24829211002F549E /* SceneDelegate.swift in Sources */,
 			);

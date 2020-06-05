@@ -7,12 +7,18 @@
 //
 
 import UIKit
-
+import Flutter
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor.red
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let flutterEngine = (UIApplication.shared.delegate as! AppDelegate).flutterEngine
+        let flutterVC = FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
+        navigationController?.pushViewController(flutterVC, animated: true)
     }
 
 
